@@ -75,10 +75,12 @@ for (var i = 0; i < coffees.length; i++) {
 }
 function searchCoffee(e) {
     e.preventDefault();
+    allCoffees.innerHTML = "";
     for (var i = 0; i < coffees.length; i++) {
-        if (searchValue.value.toLowerCase() === coffees[i].name.toLowerCase()) {
-            allCoffees.innerHTML = "<h3>" + coffees[i].name + "</h3>";
+        if (coffees[i].name.toLowerCase().includes(searchValue.value.toLowerCase())) {
+            allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
             allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
+            allCoffees.innerHTML += "<br>";
         }
     }
 }
