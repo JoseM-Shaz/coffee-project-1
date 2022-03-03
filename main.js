@@ -1,5 +1,6 @@
 "use strict"
 
+//function creates tables rows in html format
 function renderCoffee(coffee) {
     var html = '<tr class="coffee">';
     html += '<td>' + coffee.id + '</td>';
@@ -10,6 +11,7 @@ function renderCoffee(coffee) {
     return html;
 }
 
+//function loops through the individual objects in the 'coffees' array and send them to the renderCoffee function
 function renderCoffees(coffees) {
     var html = '';
     for(var i = coffees.length - 1; i >= 0; i--) {
@@ -18,6 +20,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
+//takes input from the html form and uses it to display coffee information
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -48,10 +51,14 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+//the variables below are being assigned to specific html elements
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
+
+//code below runs the function that populates data to the table element
 tbody.innerHTML = renderCoffees(coffees);
 
+//code below reacts to the submit button being clicked in order to display different coffee information
 submitButton.addEventListener('click', updateCoffees);
