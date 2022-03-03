@@ -1,21 +1,19 @@
 "use strict"
 
-//function creates tables rows in html format
-// function renderCoffee(coffee) {
-//     var html = '<tr class="coffee">';
-//     html += '<td>' + coffee.id + '</td>';
-//     html += '<td>' + coffee.name + '</td>';
-//     html += '<td>' + coffee.roast + '</td>';
-//     html += '</tr>';
-//
-//     return html;
-// }
+// function creates tables rows in html format
+function renderCoffee(coffee) {
+    var html = '<tr class="coffee">';
+    html += '<td>' + coffee.id + '</td>';
+    html += '<td>' + coffee.name + '</td>';
+    html += '<td>' + coffee.roast + '</td>';
+    html += '</tr>';
+
+    return html;
+}
 // function renderCoffee() {
 // }
 // renderCoffee()
 
-// coffeeName.innerText = "hello world"
-// coffeeRoast.innerText = coffees[0].roast
 
 
 //function loops through the individual objects in the 'coffees' array and send them to the renderCoffee function
@@ -62,9 +60,18 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-var coffeeName = document.getElementById(name)
-var coffeeRoast= document.getElementById(coffee-roast)
-console.log(coffeeName)
+var coffeeName = document.querySelector(".name")
+var coffeeRoast= document.querySelector(".roast")
+var allCoffees = document.querySelector(".coffee-div")
+
+
+for (var i = 0; i < coffees.length; i++) {
+    allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
+    allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
+    allCoffees.innerHTML += "<br>"
+}
+
+
 //code below runs the function that populates data to the table element
 tbody.innerHTML = renderCoffees(coffees);
 
