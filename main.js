@@ -64,7 +64,8 @@ var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var allCoffees = document.querySelector(".coffee-div");
-var searchButton = document.querySelector(".search");
+var searchValue = document.querySelector(".search-value");
+var searchButton = document.querySelector("#search-button");
 
 //for loop shows list of coffees in ascending order in single div
 for (var i = 0; i < coffees.length; i++) {
@@ -72,22 +73,23 @@ for (var i = 0; i < coffees.length; i++) {
     allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
     allCoffees.innerHTML += "<br>"
 }
-function searchCoffee(input) {
+function searchCoffee(e) {
+    e.preventDefault();
     for (var i = 0; i < coffees.length; i++) {
-        if (input === coffees[i].name) {
+        if (searchValue.value.toLowerCase() === coffees[i].name.toLowerCase()) {
             allCoffees.innerHTML = "<h3>" + coffees[i].name + "</h3>";
             allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
-            allCoffees.innerHTML += "<br>"
         }
     }
 }
-searchCoffee('French')
-
+// searchCoffee('French')
 
 //code below runs the function that populates data to the table element
-tbody.innerHTML = renderCoffees(coffees);
+// tbody.innerHTML = renderCoffees(coffees);
 
 //code below reacts to the submit button being clicked in order to display different coffee information
-submitButton.addEventListener('click', updateCoffees);
 
-searchButton.addEventListener('click', searchCoffee)
+// submitButton.addEventListener('click', updateCoffees);
+
+searchButton.addEventListener('click', searchCoffee);
+
