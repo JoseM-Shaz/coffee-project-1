@@ -38,6 +38,9 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+
+
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -60,16 +63,25 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-var coffeeName = document.querySelector(".name")
-var coffeeRoast= document.querySelector(".roast")
-var allCoffees = document.querySelector(".coffee-div")
+var allCoffees = document.querySelector(".coffee-div");
+var searchButton = document.querySelector(".search");
 
-
+//for loop shows list of coffees in ascending order in single div
 for (var i = 0; i < coffees.length; i++) {
     allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
     allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
     allCoffees.innerHTML += "<br>"
 }
+function searchCoffee(input) {
+    for (var i = 0; i < coffees.length; i++) {
+        if (input === coffees[i].name) {
+            allCoffees.innerHTML = "<h3>" + coffees[i].name + "</h3>";
+            allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
+            allCoffees.innerHTML += "<br>"
+        }
+    }
+}
+searchCoffee('French')
 
 
 //code below runs the function that populates data to the table element
@@ -77,3 +89,5 @@ tbody.innerHTML = renderCoffees(coffees);
 
 //code below reacts to the submit button being clicked in order to display different coffee information
 submitButton.addEventListener('click', updateCoffees);
+
+searchButton.addEventListener('click', searchCoffee)
