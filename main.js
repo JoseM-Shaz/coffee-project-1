@@ -1,15 +1,15 @@
 "use strict"
 
 // function creates tables rows in html format
-function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
-
-    return html;
-}
+// function renderCoffee(coffee) {
+//     var html = '<tr class="coffee">';
+//     html += '<td>' + coffee.id + '</td>';
+//     html += '<td>' + coffee.name + '</td>';
+//     html += '<td>' + coffee.roast + '</td>';
+//     html += '</tr>';
+//
+//     return html;
+// }
 // function renderCoffee() {
 // }
 // renderCoffee()
@@ -35,7 +35,12 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    allCoffees.innerHTML = "";
+    for (var i = 0; i < filteredCoffees.length; i++) {
+        allCoffees.innerHTML += "<h3>" + filteredCoffees[i].name + "</h3>";
+        allCoffees.innerHTML += "<p>" + filteredCoffees[i].roast + "</p>";
+        allCoffees.innerHTML += "<br>"
+    }
 }
 
 
@@ -60,7 +65,6 @@ var coffees = [
 ];
 
 //the variables below are being assigned to specific html elements
-var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var allCoffees = document.querySelector(".coffee-div");
@@ -92,7 +96,7 @@ function searchCoffee(e) {
 
 //code below reacts to the submit button being clicked in order to display different coffee information
 
-// submitButton.addEventListener('click', updateCoffees);
+submitButton.addEventListener('click', updateCoffees);
 searchValue.addEventListener('keyup', searchCoffee )
 searchButton.addEventListener('click', searchCoffee);
 
