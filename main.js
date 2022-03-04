@@ -70,13 +70,21 @@ var roastSelection = document.querySelector('#roast-selection');
 var allCoffees = document.querySelector(".coffee-div");
 var searchValue = document.querySelector(".search-value");
 var searchButton = document.querySelector("#search-button");
+var addCoffeeName = document.querySelector("#coffee-name");
+var addCoffeeRoast = document.querySelector("#coffee-roast");
+var addCoffeeButton = document.querySelector("#add-coffee-button")
 
 //for loop shows list of coffees in ascending order in single div
-for (var i = 0; i < coffees.length; i++) {
-    allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
-    allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
-    allCoffees.innerHTML += "<br>"
+function displayCoffees() {
+    for (var i = 0; i < coffees.length; i++) {
+        allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
+        allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
+        allCoffees.innerHTML += "<br>"
+    }
 }
+displayCoffees();
+
+//function below sorts through the coffees array and searches for matches provided by the user in the search box
 function searchCoffee(e) {
     e.preventDefault();
     allCoffees.innerHTML = "";
@@ -89,14 +97,27 @@ function searchCoffee(e) {
     }
 }
 
-// searchCoffee('French')
 
-//code below runs the function that populates data to the table element
-// tbody.innerHTML = renderCoffees(coffees);
+//function below adds coffee object to the coffees array based on the user input
+function addCoffee(e) {
+    e.preventDefault();
+    // coffees.push({id: (coffees.length + 1), name: addCoffeeName.value, roast: addCoffeeRoast.value});
+    coffees.push({id: (coffees.length + 1), name: addCoffeeName.value, roast: addCoffeeRoast.value});
+    console.log(coffees);
+    displayCoffees();
+};
 
 //code below reacts to the submit button being clicked in order to display different coffee information
 
 submitButton.addEventListener('click', updateCoffees);
-searchValue.addEventListener('keyup', searchCoffee )
+
+//code below reacts to the input provided by the user in the search box
+searchValue.addEventListener('keyup', searchCoffee);
+
+//code below runs the searchCoffee function once the search button is clicked
 searchButton.addEventListener('click', searchCoffee);
+
+//code below runs addCoffee function once the add coffee button is clicked
+addCoffeeButton.addEventListener("click", addCoffee)
+
 
