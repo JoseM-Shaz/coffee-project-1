@@ -16,14 +16,14 @@
 
 
 
-//function loops through the individual objects in the 'coffees' array and send them to the renderCoffee function
-function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
-    }
-    return html;
-}
+//function loops through the individual objects in the 'coffees' array and send them to the function renderCoffee
+// function renderCoffees(coffees) {
+//     var html = '';
+//     for(var i = coffees.length - 1; i >= 0; i--) {
+//         html += renderCoffee(coffees[i]);
+//     }
+//     return html;
+// }
 
 //takes input from the html form and uses it to display coffee information
 function updateCoffees(e) {
@@ -37,9 +37,7 @@ function updateCoffees(e) {
     });
     allCoffees.innerHTML = "";
     for (var i = 0; i < filteredCoffees.length; i++) {
-        allCoffees.innerHTML += "<h3>" + filteredCoffees[i].name + "</h3>";
-        allCoffees.innerHTML += "<p>" + filteredCoffees[i].roast + "</p>";
-        allCoffees.innerHTML += "<br>"
+        allCoffees.innerHTML += "<div class='individual-coffees'>" + "<h3>" + coffees[i].name + "</h3>" + "<span>" + coffees[i].roast + "</span>" + "</div>";
     }
 }
 
@@ -77,9 +75,7 @@ var addCoffeeButton = document.querySelector("#add-coffee-button")
 //for loop shows list of coffees in ascending order in single div
 function displayCoffees() {
     for (var i = 0; i < coffees.length; i++) {
-        allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
-        allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
-        allCoffees.innerHTML += "<br>"
+        allCoffees.innerHTML += "<div class='individual-coffees'>" + "<h3>" + coffees[i].name + "</h3><hr>" + "<span>" + coffees[i].roast + "</span>" + "</div>";
     }
 }
 displayCoffees();
@@ -90,9 +86,7 @@ function searchCoffee(e) {
     allCoffees.innerHTML = "";
     for (var i = 0; i < coffees.length; i++) {
         if (coffees[i].name.toLowerCase().includes(searchValue.value.toLowerCase())) {
-            allCoffees.innerHTML += "<h3>" + coffees[i].name + "</h3>";
-            allCoffees.innerHTML += "<p>" + coffees[i].roast + "</p>";
-            allCoffees.innerHTML += "<br>";
+            allCoffees.innerHTML += "<div class='individual-coffees'>" + "<h3>" + coffees[i].name + "</h3><hr>" + "<span>" + coffees[i].roast + "</span>" + "</div>";
         }
     }
 }
@@ -110,7 +104,7 @@ function addCoffee(e) {
     } else {
         alert("Please add a name and roast to the coffee to be added.")
     }
-};
+}
 
 //code below reacts to the submit button being clicked in order to display different coffee information
 

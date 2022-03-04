@@ -1,25 +1,86 @@
+body {
+    background-image: url("coffee-beans-bg.jpeg");
+    background-size: cover;
+    color: goldenrod;
+    width: 75%;
+    margin: auto;
+    font-family: 'Josefin Sans', sans-serif;}
+
 h1 {
-    text-align: center;
+   text-align: center;
 }
+
 form {
-    background: pink;
+    background: #736450;
     display: flex;
     justify-content: center;
-    width: 100%;
-    border: solid black 1px;
 }
-.search-value, {
+
+.search-value {
     width: 50%;
 }
-h4 {
-    text-align: center;
 
+h3 {
+    font-weight: bold;
+    margin-bottom: 3px;
+    position: relative;
+    top:10px;
 }
 
-div {
+h4 {
+    text-align: center;
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.coffee-div {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.individual-coffees {
+    background-image: url("coffee-mug-from-top.webp");
+    background-position: center;
+    margin: 10px;
+    border: 3px solid #2d66bd;
+    border-radius: 50%;
+    padding: 15px;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    /*background-color: #736450;*/
+    line-height: 35px;
+}
+
+label {
+    text-align: center;
+}
+
+#add-coffee-form {
+    justify-content: space-around;
+    padding: 10px;
+}
+
+#coffee-name, #coffee-roast {
+    height: 15px;
+}
+
+hr {
+    margin: auto;
+    height: 1px;
+    border: 0;
+    background-color: goldenrod;
+    width: 60%;
+}
+
+span {
+    position: relative;
+    bottom:5px;
+    margin:3px
 }
 
 
