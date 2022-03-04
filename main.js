@@ -84,6 +84,7 @@ function searchCoffee(e) {
         }
     }
 }
+
 // searchCoffee('French')
 
 //code below runs the function that populates data to the table element
@@ -92,6 +93,6 @@ function searchCoffee(e) {
 //code below reacts to the submit button being clicked in order to display different coffee information
 
 // submitButton.addEventListener('click', updateCoffees);
-
+searchValue.addEventListener('keyup', searchCoffee )
 searchButton.addEventListener('click', searchCoffee);
 
