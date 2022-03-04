@@ -102,9 +102,14 @@ function searchCoffee(e) {
 function addCoffee(e) {
     e.preventDefault();
     // coffees.push({id: (coffees.length + 1), name: addCoffeeName.value, roast: addCoffeeRoast.value});
-    coffees.push({id: (coffees.length + 1), name: addCoffeeName.value, roast: addCoffeeRoast.value});
-    console.log(coffees);
-    displayCoffees();
+    if (addCoffeeRoast.value !== "" && addCoffeeName.value !== "") {
+        coffees.push({id: (coffees.length + 1), name: addCoffeeName.value, roast: addCoffeeRoast.value});
+        console.log(coffees);
+        allCoffees.innerHTML = "";
+        displayCoffees();
+    } else {
+        alert("Please add a name and roast to the coffee to be added.")
+    }
 };
 
 //code below reacts to the submit button being clicked in order to display different coffee information
